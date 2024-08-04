@@ -1,11 +1,13 @@
-﻿namespace DrawingPackage.Widgets
+﻿using EnsureThat;
+
+namespace DrawingPackage.Widgets
 {
     public class Eclipse : Shape, IWidget
     {
         public Eclipse(int x, int y, int diameterH, int diameterV) : base(x, y)
         {
-            DiameterH = diameterH;
-            DiameterV = diameterV;
+            DiameterH = EnsureArg.IsGt(diameterH, 0);
+            DiameterV = EnsureArg.IsGt(diameterV, 0);
         }
 
         public int DiameterH { get; private set; }

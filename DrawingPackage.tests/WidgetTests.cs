@@ -61,6 +61,7 @@ namespace DrawingPackage.tests
                 listOfPrints.Add(item.Print());
             }
 
+            listOfPrints.Count.Should().Be(5);
         }
 
         [Fact]

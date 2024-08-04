@@ -1,10 +1,12 @@
-﻿namespace DrawingPackage.Widgets
+﻿using EnsureThat;
+
+namespace DrawingPackage.Widgets
 {
     public class Textbox: Rectangle, IWidget
     {
         public Textbox(int x, int y, int width, int height, string text) : base(x, y, width, height)
         {
-            Text = text;
+            Text = EnsureArg.IsNotEmptyOrWhiteSpace(text);
         }
 
         public string Text { get; private set; }

@@ -1,10 +1,12 @@
-﻿namespace DrawingPackage.Widgets
+﻿using EnsureThat;
+
+namespace DrawingPackage.Widgets
 {
     public class Square : Shape, IWidget
     {
         public Square(int x, int y, int size) : base(x, y)
         {
-            Size = size;
+            Size = EnsureArg.IsGt(size, 0);
         }
 
         public int Size { get; private set; }

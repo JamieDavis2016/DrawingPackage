@@ -1,11 +1,13 @@
-﻿namespace DrawingPackage.Widgets
+﻿using EnsureThat;
+
+namespace DrawingPackage.Widgets
 {
     public class Rectangle : Shape, IWidget
     {
         public Rectangle(int x, int y, int width, int height) : base(x, y)
         {
-            Width = width;
-            Height = height;
+            Width = EnsureArg.IsGt(width, 0);
+            Height = EnsureArg.IsGt(height, 0);
         }
 
         public int Width { get; private set; }
